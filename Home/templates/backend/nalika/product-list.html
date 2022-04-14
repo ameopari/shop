@@ -1,0 +1,96 @@
+{% extends 'backend/base.html' %}
+{% block content %}
+{% load static %}
+
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="breadcome-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+											<div class="breadcomb-icon">
+												<i class="icon nalika-home"></i>
+											</div>
+											<div class="breadcomb-ctn">
+												<h2>Product List</h2>
+												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
+											</div>
+										</div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-report">
+											<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="icon nalika-download"></i></button>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-status mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Products List</h4>
+                            <div class="add-product">
+                                {% comment %} <a href="{% url 'add' %}">Add Product</a> {% endcomment %}
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>User</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Product Title</th>
+                                    <th>Product Category</th>
+                                  
+                                </tr>
+                                {% for Product in products %}
+                                <tr>
+                                    {% if Product.image %}
+                                    <td> <img src="{{Product.image.url}}" class="card-img-top" alt="404"></td>
+                                    {% endif %}
+                                    <td> <img src="" class="card-img-top" alt="404"></td>
+                                    <td>{{Product.user}}</td>
+                                   
+                                    <td>{{Product.price}}</td>
+                
+                                    <td>{{Product.quality}}</td>
+                                    <td>{{Product.category.name}}</td>
+                                    <td>
+                                    <a href = "{% url 'update' Product.id %}"class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{% url 'delete' Product.id %}" method="POST" class="d-inline">
+                                      {% csrf_token %}
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                
+                                    </td>       
+                                
+                                </tr>
+                                {% endfor %}
+                
+                            </table>
+                            <div class="custom-pagination">
+								<ul class="pagination">
+									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">2</a></li>
+									<li class="page-item"><a class="page-link" href="#">3</a></li>
+									<li class="page-item"><a class="page-link" href="#">Next</a></li>
+								</ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+{% endblock %}
+</html>

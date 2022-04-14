@@ -138,3 +138,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
+
+
+
+
+STRIPE_PUBLISHABLE_KEY  = "pk_test_51Kc2UMSJwzlVXllpbz48uGQD9N1emyEOAeFIsqm5ZkwZL44vsApbofsHtuuNaaAMkZyE9AZSngqR94s0BC6ENc7k00kyOHhwNo"
+
+STRIPE_SECRET_KEY = "sk_test_51Kc2UMSJwzlVXllp9i1InTimh3CE8GbPY73IlbpYl5ZZWR6G2Jetkcg3AzGN6ddhaYLathuO15E9W8x7DucYHDmj000xP4aBKG"

@@ -560,9 +560,11 @@ textarea.input {
 }
 
 .cart-dropdown .cart-list {
-  max-height: 180px;
-  overflow-y: scroll;
+  max-height: 175px;
+  /* overflow-y: scroll; */
+  height: 51px;
   margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .cart-dropdown .cart-list .product-widget {

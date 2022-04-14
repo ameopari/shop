@@ -21,15 +21,23 @@ from Home.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
-from .forms import LoginForm
+# from .forms import LoginForm
 
 
 urlpatterns = [
     path('home/',views.home,name='home'),
     path('register',Register.as_view(),name='register'),
-    path('accounts/login/',auth_views.LoginView.as_view(template_name='login.html',authentication_form=LoginForm),name='login'),
-    path('logout/',auth_views.LogoutView.as_view(next_page='login'),name='logout')
-   
+    path('login',views.Login.as_view(),name='login'),
+    path('logout',views.LogoutView.as_view(),name='logout'),
+    path('index',views.index,name='index'),
+    path('add',views.Addproduct.as_view(),name='add'),
+    path('show',views.Show,name='show'),
+    path('cat',views.Cate,name='cat'),
+    path('update/<int:id>',views.upd,name='update'),
+    path('delete/<int:id>/',views.delete,name='delete'),
+    path('addtocart/',addtocart.as_view(),name='addtocart'),
+    path('showproduct',views.ShowProduct.as_view(),name='showproduct'),
+    path('payment',views.Payment.as_view(),name='payment')
 ]
 
 
